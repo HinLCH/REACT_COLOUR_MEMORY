@@ -1,0 +1,25 @@
+@import './style/Main.scss';
+@import './style/Grid.scss';
+@import './style/Header.scss';
+@import './style/Card.scss';
+@import './style/Board.scss';
+
+html, body, #root, #app,.mainbody{
+  margin: 0;
+  /* set full screen */
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Open Sans Condensed';
+  padding: 20px 40px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}

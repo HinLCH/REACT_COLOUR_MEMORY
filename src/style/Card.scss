@@ -1,0 +1,73 @@
+.card-mainbody {
+    width:25%;
+    height:25%;
+    border: white solid;
+
+
+    .flipped .flipper{
+        transform: rotateY(180deg);
+        width: 100%;
+        height: 100%;
+    }
+
+    .flip-container{
+        transform: rotateY(180deg);
+        width: 100%;
+        height: 100%;
+    }
+
+    .flipper {
+        transition: 1s;
+        transform-style: preserve-3d;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .front,
+        .back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left:0;
+            top:0;
+        }
+
+        .back {
+            z-index:2;
+            background: black;
+        }
+
+        .front {
+            z-index:2;
+            transform: rotateY(180deg);
+        }
+        .red {
+            background:red;
+        }
+        .blue {
+            background: blue;
+        }
+        .green {
+            background: green;
+        }
+        .yellow{
+            background:yellow ;
+        }
+        .pink{
+            background: pink;
+        }
+        .orange{
+            background: orange;
+        }
+        .lightblue{
+            background: lightblue;
+        }
+        .gold{
+            background: gold;
+        }
+
+    }
+
+    
+}
