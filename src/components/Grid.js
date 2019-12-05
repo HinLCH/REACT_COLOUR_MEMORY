@@ -11,7 +11,9 @@ class Grid extends Component {
         flipped : [],
         cards : [],
         selectedID :[],
-        disable: false, //disable the board when 2 card are opened
+        //before disable the board when 2 card are opened
+        //now disable the board when all card are opened
+        disable: false, 
         openedCardIds: [],
     }
 
@@ -52,38 +54,39 @@ class Grid extends Component {
     //check if 2 boxes are same
     checkPair = () => {
         const { flipped,openedCardIds, selectedID } = this.state;
-        console.log(`flipped[0] ${flipped[0]}`)
-        console.log(`flipped 1${flipped[1]}` )
+        const { addScore  , loseScore } = this.props
         if ( flipped[0] === flipped[1]){
-            console.log('2 are same')
+            //when there is a pair
             setTimeout(() => {
                 this.setState({
                     flipped: [],
                     selectedID: [],
                     openedCardIds: openedCardIds.concat(selectedID),
                     disable: false,
+                } , () => {
+                    addScore()
+                    if ( this.state.openedCardIds.length === 4 ) {
+                        console.log('game end')
+                    }
                 })
+             
             }, 1000)
         } else {
-            console.log('2 are  not same')
             setTimeout(() => {
                 this.setState({
                     flipped: [],
                     selectedID: [],
                     disable: false,
                 })
+                loseScore()
             }, 1000)
         }
     }
 
     render(){
         const { flipped ,cards , disable, selectedID, openedCardIds} = this.state
-        console.log('flippedcard is ',flipped)
-        console.log('all cards ',cards)
-        const { addScore  , loseScore } = this.props
-        // console.log('grid props',[addScore,loseScore])
-
-
+        // console.log('flippedcard is ',flipped)
+        console.log('all cards ',cards) // get all hidden cards for testing
         return(
         <Fragment>
             <Board

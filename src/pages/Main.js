@@ -3,11 +3,10 @@ import React , { Component } from 'react';
 import Grid from '../components/Grid'
 import Header from '../components/Header'
 
-
-
 class Main extends Component {
     state = {
-        score : 0
+        score : 0,
+        gameFinish : false,
       }
 
     addScore = () => {
@@ -23,11 +22,11 @@ class Main extends Component {
     }
     
     render(){
-        const { score } = this.state
-        console.log('this',score)
+        const { score ,gameFinish } = this.state
+        console.log('this score',score)
         return(
         <div className='main-mainbody'>
-            <Header score={score}/>
+            <Header score={score} gameFinish={gameFinish}/>
             <Grid addScore={this.addScore} loseScore={this.loseScore}/>
         </div>
         )

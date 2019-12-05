@@ -12,7 +12,7 @@ class Header extends Component {
         console.log('header props',score)
         return(
         <div className='header-mainbody'>
-        Header
+        Header Score: {score}
         </div>
         )
     }
