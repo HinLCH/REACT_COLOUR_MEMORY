@@ -3,7 +3,7 @@ import React , { Component ,Fragment } from 'react';
 import Card from './Card'
 import Board from './Board'
 
-import initializeDeck from '../util/function'
+import {initializeDeck} from '../util/function'
 
 class Grid extends Component {
 
@@ -28,7 +28,7 @@ class Grid extends Component {
     setDisable = (bool) => {
         this.setState({
             disable : bool
-        },() =>console.log('disable',this.state.disable))
+        })
     }
 
     handleClick = (type , id ) => {
@@ -42,7 +42,6 @@ class Grid extends Component {
                     selectedID : [...prevState.selectedID , id],
                 }), () => {
                     if ( this.state.flipped.length == 2 ) {
-                        console.log('u hv select  2 boxes');
                         this.setDisable(true);
                         this.checkPair();
                     }
@@ -54,7 +53,7 @@ class Grid extends Component {
     //check if 2 boxes are same
     checkPair = () => {
         const { flipped,openedCardIds, selectedID } = this.state;
-        const { addScore  , loseScore } = this.props
+        const { addScore  , loseScore , endGame} = this.props
         if ( flipped[0] === flipped[1]){
             //when there is a pair
             setTimeout(() => {
@@ -65,8 +64,8 @@ class Grid extends Component {
                     disable: false,
                 } , () => {
                     addScore()
-                    if ( this.state.openedCardIds.length === 4 ) {
-                        console.log('game end')
+                    if ( this.state.openedCardIds.length === 16 ) {
+                        endGame()
                     }
                 })
              
@@ -85,7 +84,6 @@ class Grid extends Component {
 
     render(){
         const { flipped ,cards , disable, selectedID, openedCardIds} = this.state
-        // console.log('flippedcard is ',flipped)
         console.log('all cards ',cards) // get all hidden cards for testing
         return(
         <Fragment>

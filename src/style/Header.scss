@@ -1,4 +1,24 @@
 .header-mainbody{
     border:green solid;
     height:80px;
+    display: flex;
+    justify-content: space-around;
+    .header-icon-container{
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .header-score-container{
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right:10%;
+    }
+
+    .MuiButtonBase-root{
+        background: lightblue;
+        margin: 10px 0;
+    }
 }

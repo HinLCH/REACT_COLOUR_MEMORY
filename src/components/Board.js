@@ -6,9 +6,7 @@ class Board extends Component {
 
     handleCardClick = (type  ,  id )  => {
         const {handleClick} =this.props
-
         handleClick(type ,id)
-        console.log('type,id',[type , id])
     }
 
     render (){
