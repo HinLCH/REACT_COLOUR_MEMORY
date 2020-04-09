@@ -1,4 +1,4 @@
-# Colour Memory for interview test
+# Colour Memory Game using React
 
 ## Install dependencies:
 `yarn`
